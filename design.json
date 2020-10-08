@@ -1,0 +1,39 @@
+productsSchema = {
+products:
+ [
+   {
+     productId: 1,
+     Name: "Nike Air",
+     cartegory: "Shoe",
+     Description: “blah blah”,
+     Price: 20.00,
+     variant:{
+       size: {
+          "10": 4,
+          "7": 2
+        },
+      color: {
+        "red": 2,
+        "white": 1,
+        "blue": 3
+      }
+     },
+     dateTime: 2020-10-09
+   },
+   {
+     productId: 2,
+     Name: shoe,
+     Description: “blah blah”,
+     Price: 20.00,
+     dateTime: 2020-10-09
+   },
+   {
+     productId: 1,
+     Name: shoe,
+     Description: “blah blah”,
+     Price: 20.00,
+     dateTime: 2020-10-09
+   }
+ ]
+
+}
