@@ -31,7 +31,7 @@ var createCustomer = (req, res) => {
     customerModel.createCustomer(req.body, function(result){
       console.log("status: "+result);
       res.send(result);
-      console.log("customere not created");
+      console.log("customer not created");
     });
   }catch(error){
     console.log("There was an error"+error);

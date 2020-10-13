@@ -7,13 +7,13 @@ var customer = {
 };
 
 // Define setters
-Object.defineProperty(customer, "customerCustomereId", {
+Object.defineProperty(customer, "customerCustomerId", {
   set: function(customer_id){this.customer_id = customer_id;}
 });
 Object.defineProperty(customer, "customerBusinessId", {
   set: function(business_id){this.business_id = business_id;}
 });
-Object.defineProperty(customer, "fname", {
+Object.defineProperty(customer, "customerFname", {
   set: function(fname){this.fname = fname;}
 });
 Object.defineProperty(lname, "customerLname", {
