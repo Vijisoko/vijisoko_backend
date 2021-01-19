@@ -1,16 +1,31 @@
-const express = require('express');
+require('dotenv').config()
+
+const express = require('express')
+const app = express()
+const mongoose = require('mongoose')
 var bodyParser = require("body-parser");
 
-const app = express();
+mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+const db = mongoose.connection
+db.on('error', (error) => console.error(error))
+db.once('open', () => console.log('Connected to DB'))
 
-// Routes
-var customerRoute = require("./routes/customer");
+app.use(express.json())
+app.use(bodyParser.urlencoded({ extended: false }));
 
-// Middlewares
-app.use("/customer", customerRoute);
+const businessRouter = require('./routes/business.js')
+app.use('/business', businessRouter)
 
-app.get('/', (req, res) => {
- res.send("Home");
-});
+const ownerRouter = require('./routes/owner.js')
+app.use('/owner', ownerRouter)
 
-app.listen(3000);
+const customerRouter = require('./routes/customer.js')
+app.use('/customer', customerRouter)
+
+const orderRouter = require('./routes/order.js')
+app.use('/order', orderRouter)
+
+const productRouter = require('./routes/product.js')
+app.use('/product', productRouter)
+
+app.listen(3100, () => console.log("server started"))

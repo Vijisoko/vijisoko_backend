@@ -1,0 +1,98 @@
+POST http://localhost:3000/business
+Content-Type: application/json
+
+{
+    "name": "Cilo designs",
+    "type": "home appliances"
+}
+###
+GET http://localhost:3000/business/5fd705ffc8b155215616f4fe
+###
+GET http://localhost:3000/business/
+###
+POST http://localhost:3000/owner
+Content-Type: application/json
+
+{
+    "fname": "John",
+    "lname": "Doe"
+}
+###
+POST http://localhost:3000/customer
+Content-Type: application/json
+
+{
+    "fname": "John",
+    "lname": "Doe",
+    "phone": "0723056789",
+    "email": "jd@gmail.com",
+    "delivery_point": "Kenya Cinema, CBD",
+    "password": "123"
+}
+
+###
+POST http://localhost:3000/product
+Content-Type: application/json
+
+{
+    "name": "Plain shirts",
+    "description": "Plain shirts for mass printing",
+    "cartegory": "Smart phones",
+    "price": 200,
+    "variant": [ 
+        {
+            "color": "white", 
+            "size":"large",
+            "material": "cotton"
+        }
+    ],
+    "stock": 50,
+    "business_id": "5fd6fa91eca3751b111adaa3"
+}
+
+###
+POST http://localhost:3000/order
+Content-Type: application/json
+
+{
+    "customer_id": "5fe18b7068273a1344bc5d0a",
+    "product_id": "5fe1884da5d673101a2ab4db",
+    "quantity": 2,
+    "cost": 400,
+    "variant": [ 
+        {
+            "color": "white", 
+            "size":"large",
+            "material": "cotton"
+        }
+    ],
+    "delivery_point": "Kenya Cinema",
+    "shipping": "no",
+    "payment_mode": "MPESA",
+    "amount": 400 
+}
+
+###
+PUT http://localhost:3000/order/accept
+Content-Type: application/json
+
+{
+    "order_id": "5fe1b82ba1784c30d069a448",
+    "acceptance": "yes"
+}
+
+###
+PUT http://localhost:3000/order/dispatch
+Content-Type: application/json
+
+{
+    "order_id": "5fe1b82ba1784c30d069a448",
+    "dispatch": {
+        "status": "yes",
+        "delivery": {
+            "person_name": "Mark Kariuki",
+            "person_phone": "0714567890",
+            "mode": "Motobike"
+        }
+    }
+}
